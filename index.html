@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialektika Sejarah - Portal Perjuangan Gen Z</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variabel CSS */
+        :root {
+            --primary: #1a237e;
+            --primary-light: #534bae;
+            --primary-dark: #000051;
+            --secondary: #ff6f00;
+            --secondary-light: #ff9e40;
+            --secondary-dark: #c43e00;
+            --text-light: #f5f5f5;
+            --text-dark: #212121;
+            --background: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--text-light);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            color: var(--text-light);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+        }
+
+        .btn-download {
+            background-color: #4caf50;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .btn-download:hover {
+            background-color: #388e3c;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: var(--text-light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-light);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-light);
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Timeline Section */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 4rem;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-left: 30px;
+            padding-right: 0;
+            left: 50%;
+        }
+
+        .timeline-content {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .timeline-desc {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            top: 0;
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+            right: auto;
+        }
+
+        /* Tokoh Section */
+        .tokoh-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tokoh-card {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .tokoh-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .tokoh-content {
+            padding: 1.5rem;
+        }
+
+        .tokoh-name {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tokoh-era {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tokoh-desc {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Action Lab Section */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .action-card {
+            text-align: center;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .action-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .action-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .action-desc {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 3rem 0;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: var(--text-light);
+        }
+
+        .footer-link:hover {
+            color: var(--secondary-light);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1100;
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 800px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Toolkit Modal */
+        .toolkit-list {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .toolkit-list li {
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .toolkit-download {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 968px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 20px;
+                right: auto;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background-color: var(--primary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 1.5rem 0;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-item {
+                margin: 1.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container container">
+            <a href="#" class="logo">
+                <i class="fas fa-history"></i>
+                Dialektika Sejarah
+            </a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">Beranda</a></li>
+                <li class="nav-item"><a href="#timeline" class="nav-link">Linimasa</a></li>
+                <li class="nav-item"><a href="#tokoh" class="nav-link">Tokoh</a></li>
+                <li class="nav-item"><a href="#action" class="nav-link">Action Lab</a></li>
+                <li class="nav-item"><a href="#resources" class="nav-link">Sumber Daya</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">DIALEKTIKA SEJARAH</h1>
+            <p class="hero-subtitle">Portal Perjuangan Gen Z: Dari Boedi Oetomo ke Demo, Benang Merahnya Apa?</p>
+            <div class="hero-buttons">
+                <a href="#timeline" class="btn">Jelajahi Linimasa</a>
+                <a href="#action" class="btn btn-secondary">Action Lab</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section">
+        <div class="container">
+            <h2 class="section-title">Jejak Langkah Perjuangan Bangsa</h2>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content" onclick="openModal('modal1908')">
+                            <div class="timeline-date">1908</div>
+                            <h3 class="timeline-title">Boedi Oetomo</h3>
+                            <p class="timeline-desc">Kebangkitan kesadaran nasional melalui pendidikan dan organisasi modern pertama di Indonesia.</p>
+                            <a href="#" class="btn">Selengkapnya</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content" onclick="openModal('modal1928')">
+                            <div class="timeline-date">1928</div>
+                            <h3 class="timeline-title">Sumpah Pemuda</h3>
+                            <p class="timeline-desc">Ikrar pemuda Indonesia sebagai satu bangsa, satu tanah air, dan satu bahasa.</p>
+                            <a href="#" class="btn">Selengkapnya</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content" onclick="openModal('modal1945')">
+                            <div class="timeline-date">1945</div>
+                            <h3 class="timeline-title">Proklamasi Kemerdekaan</h3>
+                            <p class="timeline-desc">Puncak perjuangan bangsa Indonesia melepaskan diri dari belenggu kolonialisme.</p>
+                            <a href="#" class="btn">Selengkapnya</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content" onclick="openModal('modal1966')">
+                            <div class="timeline-date">1966</div>
+                            <h3 class="timeline-title">Orde Baru</h3>
+                            <p class="timeline-desc">Lahirnya rezim Orde Baru dengan janji stabilitas dan pembangunan ekonomi.</p>
+                            <a href="#" class="btn">Selengkapnya</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content" onclick="openModal('modal1998')">
+                            <div class="timeline-date">1998</div>
+                            <h3 class="timeline-title">Reformasi</h3>
+                            <p class="timeline-desc">Gerakan mahasiswa dan rakyat yang menuntut demokrasi, anti-KKN, dan keadilan sosial.</p>
+                            <a href="#" class="btn">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokoh Section -->
+    <section id="tokoh" class="section">
+        <div class="container">
+            <h2 class="section-title">Telisik Jejak Sang Pelopor</h2>
+            <div class="tokoh-grid">
+                <!-- Tokoh 1 -->
+                <div class="card tokoh-card">
+                    <img src="https://placehold.co/400x300/1a237e/ffffff?text=Goenawan+Mangoenkoesoemo" alt="Goenawan Mangoenkoesoemo" class="tokoh-img">
+                    <div class="tokoh-content">
+                        <h3 class="tokoh-name">Goenawan Mangoenkoesoemo</h3>
+                        <span class="tokoh-era">Era Kebangkitan Nasional</span>
+                        <p class="tokoh-desc">Pemuda kritis yang menggunakan media sebagai alat perjuangan dengan mendirikan majalah Jong Java.</p>
+                        <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
+                
+                <!-- Tokoh 2 -->
+                <div class="card tokoh-card">
+                    <img src="https://placehold.co/400x300/1a237e/ffffff?text=Soegondo+Djojopoespito" alt="Soegondo Djojopoespito" class="tokoh-img">
+                    <div class="tokoh-content">
+                        <h3 class="tokoh-name">Soegondo Djojopoespito</h3>
+                        <span class="tokoh-era">Era Sumpah Pemuda</span>
+                        <p class="tokoh-desc">Ketua Kongres Pemuda 1928 yang berhasil memimpin forum beragam dan merumuskan Sumpah Pemuda.</p>
+                        <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
+                
+                <!-- Tokoh 3 -->
+                <div class="card tokoh-card">
+                    <img src="https://placehold.co/400x300/1a237e/ffffff?text=Sutan+Sjahrir" alt="Sutan Sjahrir" class="tokoh-img">
+                    <div class="tokoh-content">
+                        <h3 class="tokoh-name">Sutan Sjahrir</h3>
+                        <span class="tokoh-era">Era Revolusi</span>
+                        <p class="tokoh-desc">Intelektual sekaligus aktivis yang turun langsung dalam pergerakan bawah tanah melawan penjajah.</p>
+                        <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Lab Section -->
+    <section id="action" class="section">
+        <div class="container">
+            <h2 class="section-title">Action Lab: Wujudkan Aksi Nyatamu!</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;">Pilih salah satu bentuk aksi yang ingin kamu wujudkan bersama kelompokmu</p>
+            
+            <div class="action-grid">
+                <!-- Action 1 -->
+                <div class="card action-card">
+                    <i class="fas fa-file-alt action-icon"></i>
+                    <h3 class="action-title">Policy Brief & Creative Advocacy</h3>
+                    <p class="action-desc">Buat dokumen kebijakan singkat untuk isu lokal dan rencana advokasi kreatifnya.</p>
+                    <a href="#" class="btn" onclick="openModal('toolkit1')">Download Toolkit</a>
+                </div>
+                
+                <!-- Action 2 -->
+                <div class="card action-card">
+                    <i class="fas fa-hashtag action-icon"></i>
+                    <h3 class="action-title">Content Kit Sejarah & Kritik Sosial</h3>
+                    <p class="action-desc">Buat paket konten media sosial yang mengaitkan isu terkini dengan perspektif sejarah.</p>
+                    <a href="#" class="btn" onclick="openModal('toolkit2')">Download Toolkit</a>
+                </div>
+                
+                <!-- Action 3 -->
+                <div class="card action-card">
+                    <i class="fas fa-map-marked-alt action-icon"></i>
+                    <h3 class="action-title">Peta Aksi & Kaderisasi</h3>
+                    <p class="action-desc">Rancang peta jalan aksi nyata untuk rayon/komisariatmu dalam 3-6 bulan ke depan.</p>
+                    <a href="#" class="btn" onclick="openModal('toolkit3')">Download Toolkit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">Dialektika Sejarah</div>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">Beranda</a>
+                <a href="#timeline" class="footer-link">Linimasa</a>
+                <a href="#tokoh" class="footer-link">Tokoh</a>
+                <a href="#action" class="footer-link">Action Lab</a>
+                <a href="#resources" class="footer-link">Sumber Daya</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            
+            <p class="copyright">© 2023 PMII - Dialektika Sejarah. Seluruh hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Content untuk semua periode sejarah -->
+    <div id="modal1908" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal1908')">&times;</span>
+            <h2>Boedi Oetomo (1908)</h2>
+            <p><strong>Yang Diperjuangkan:</strong> Pendidikan, Kesadaran Nasional, Kemajuan</p>
+            <p><strong>Lawan/Musuh Utama:</strong> Kebodohan, Kolonialisme (secara halus)</p>
+            <p><strong>Hasil & Legacy:</strong> Politik Etis, munculnya elite terpelajar Indonesia. Masih elitis (hanya untuk priyayi Jawa).</p>
+            <p><strong>Kaitannya dengan PMII:</strong> Semangat kemandirian dan mencerdaskan kehidupan bangsa.</p>
+        </div>
+    </div>
+
+    <div id="modal1928" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal1928')">&times;</span>
+            <h2>Sumpah Pemuda (1928)</h2>
+            <p><strong>Yang Diperjuangkan:</strong> Persatuan Nasional melawan sektarianisme (Suku, Agama, Golongan)</p>
+            <p><strong>Lawan/Musuh Utama:</strong> Politik Divide et Impera Belanda, primordialisme</p>
+            <p><strong>Hasil & Legacy:</strong> Indonesia sebagai satu bangsa. Modal sosial terbesar untuk merdeka.</p>
+            <p><strong>Kaitannya dengan PMII:</strong> PMII adalah representasi dari semangat berbangsa yang Bhinneka Tunggal Ika.</p>
+        </div>
+    </div>
+
+    <div id="modal1945" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal1945')">&times;</span>
+            <h2>Proklamasi Kemerdekaan (1945)</h2>
+            <p><strong>Yang Diperjuangkan:</strong> Kedaulatan dan Kemerdekaan</p>
+            <p><strong>Lawan/Musuh Utama:</strong> Imperialisme & Fasisme Jepang</p>
+            <p><strong>Hasil & Legacy:</strong> Negara Indonesia merdeka. Perjuangan berlanjut dari fisik ke nation-building.</p>
+            <p><strong>Kaitannya dengan PMII:</strong> Semangat patriotisme dan cinta tanah air.</p>
+        </div>
+    </div>
+
+    <div id="modal1966" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal1966')">&times;</span>
+            <h2>Orde Baru (1966)</h2>
+            <p><strong>Yang Diperjuangkan:</strong> Melawan Komunisme & Demokrasi Terpimpin</p>
+            <p><strong>Lawan/Musuh Utama:</strong> Tirani Soekarno, PKI, dan hiper-inflasi</p>
+            <p><strong>Hasil & Legacy:</strong> Lahirnya Orde Baru dengan janji stabilitas dan pembangunan.</p>
+            <p><strong>Kaitannya dengan PMII:</strong> PMII lahir (1960) di era ini, semangat menjauhkan NU dari politik praktis dan konsolidasi intelektual.</p>
+        </div>
+    </div>
+
+    <div id="modal1998" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal1998')">&times;</span>
+            <h2>Reformasi (1998)</h2>
+            <p><strong>Yang Diperjuangkan:</strong> Demokrasi, Anti-KKN, HAM, Keadilan Sosial</p>
+            <p><strong>Lawan/Musuh Utama:</strong> Rezim Orba yang otoriter, korup, dan nepotis</p>
+            <p><strong>Hasil & Legacy:</strong> Jatuhnya Soeharto, kebebasan berpendapat, desentralisasi. Masalah: oligarki baru, liberalisme ekonomi.</p>
+            <p><strong>Kaitannya dengan PMII:</strong> PMII adalah aktor utama gerakan reformasi 1998. Banyak kader PMII turun ke jalan. Ini adalah jati diri dan legacy terbesar PMII di era modern.</p>
+        </div>
+    </div>
+
+    <!-- Modal untuk Toolkit -->
+    <div id="toolkit1" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('toolkit1')">&times;</span>
+            <h2><i class="fas fa-file-alt"></i> Toolkit: Policy Brief & Creative Advocacy</h2>
+            <p>Toolkit ini berisi panduan lengkap untuk membuat policy brief dan merancang strategi advokasi kreatif untuk isu-isu lokal.</p>
+            
+            <h3>Materi yang termasuk:</h3>
+            <ul class="toolkit-list">
+                <li>Template policy brief yang dapat diedit</li>
+                <li>Panduan identifikasi masalah dan analisis kebijakan</li>
+                <li>Contoh-contoh policy brief yang efektif</li>
+                <li>Strategi advokasi kreatif untuk media sosial</li>
+                <li>Panduan menyusun rencana aksi advokasi</li>
+                <li>Daftar pemangku kepentingan yang perlu dihubungi</li>
+                <li>Teknik presentasi policy brief kepada decision maker</li>
+            </ul>
+            
+            <div class="toolkit-download">
+                <p>Unduh toolkit lengkap dalam format Word dan PDF:</p>
+                <a href="#" class="btn btn-download"><i class="fas fa-download"></i> Download Toolkit Policy Brief</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="toolkit2" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('toolkit2')">&times;</span>
+            <h2><i class="fas fa-hashtag"></i> Toolkit: Content Kit Sejarah & Kritik Sosial</h2>
+            <p>Toolkit ini berisi panduan membuat konten media sosial yang mengaitkan isu terkini dengan perspektif sejarah.</p>
+            
+            <h3>Materi yang termasuk:</h3>
+            <ul class="toolkit-list">
+                <li>Template desain untuk Instagram, Twitter, dan TikTok</li>
+                <li>Panduan penulisan caption yang engaging dan informatif</li>
+                <li>Daftar referensi sejarah Indonesia yang relevan</li>
+                <li>Contoh konten yang menghubungkan sejarah dengan isu terkini</li>
+                <li>Tips meningkatkan engagement di media sosial</li>
+                <li>Jadwal posting yang optimal untuk berbagai platform</li>
+                <li>Panduan membuat thread Twitter yang informatif</li>
+            </ul>
+            
+            <div class="toolkit-download">
+                <p>Unduh toolkit lengkap dalam format Word dan PDF:</p>
+                <a href="#" class="btn btn-download"><i class="fas fa-download"></i> Download Toolkit Content Kit</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="toolkit3" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('toolkit3')">&times;</span>
+            <h2><i class="fas fa-map-marked-alt"></i> Toolkit: Peta Aksi & Kaderisasi</h2>
+            <p>Toolkit ini berisi panduan menyusun peta aksi dan program kaderisasi untuk rayon/komisariat.</p>
+            
+            <h3>Materi yang termasuk:</h3>
+            <ul class="toolkit-list">
+                <li>Template peta jalan aksi 3-6 bulan</li>
+                <li>Panduan assessment kebutuhan kader</li>
+                <li>Contoh modul kaderisasi untuk berbagai level</li>
+                <li>Teknik fasilitasi yang efektif untuk FGD</li>
+                <li>Panduan monitoring dan evaluasi program</li>
+                <li>Format laporan kegiatan dan pencapaian</li>
+                <li>Strategi mengelola relawan dan membagi tugas</li>
+            </ul>
+            
+            <div class="toolkit-download">
+                <p>Unduh toolkit lengkap dalam format Word dan PDF:</p>
+                <a href="#" class="btn btn-download"><i class="fas fa-download"></i> Download Toolkit Peta Aksi</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
